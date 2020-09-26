@@ -1,21 +1,21 @@
 pipeline{
-   agent  { label 'jenkinsSlave1' } 
+   agent  none 
    stages {
        stage("package"){
+	       agent jenkinsSlave1
 	        steps {
-			    node('jenkinsSlave1') {
 			    bat 'mvn clean package'
 			}
 	   }
 	   stage("install"){
+		agent jenkinsSlave2
 	        steps {
-			    node('jenkinsSlave2') {
 			    bat 'mvn install'
 			}
 	   }
 	   stage("package"){
+		agent jenkinsSlave3
 	        steps {
-			    node('jenkinsSlave3') {
 			    bat 'mvn deploy'
 			}
 	   }
