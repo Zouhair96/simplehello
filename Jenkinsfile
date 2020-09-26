@@ -13,7 +13,7 @@ pipeline{
 			    bat 'mvn install'
 			}
 	   }
-	   stage("package"){
+	   stage("deploy"){
 		agent { label 'jenkinsSlave3' }
 	        steps {
 			    bat 'mvn deploy'
