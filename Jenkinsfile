@@ -35,16 +35,8 @@ pipeline {
     }
 	 post {
         always {
-            emailext body: 'A Test EMail',
-			recipientProviders: 
-				[
-					[
-						$class: 'zouhair.benali96@gmail.com'
-					],
-					[
-						$class: 'zouhair.benali96@gmail.com'
-					]
-				], subject: 'Test'
+            mail bcc: '', body: '''Welcome to Jenkins World.
+		 Great Job''', cc: '', from: '', replyTo: '', subject: 'Jenkins job test', to: 'zouhair.benali96@gmail.com'
         }
     }
 }
