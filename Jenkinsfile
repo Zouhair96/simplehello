@@ -1,24 +1,36 @@
-pipeline{
-   agent  none 
-   stages {
-       stage("package"){
-	       agent { label 'jenkinsSlave1' }
-	        steps {
-			    bat 'mvn clean package'
-			}
-	   }
-	   stage("install"){
-		agent { label 'jenkinsSlave2' }
-	        steps {
-			    bat 'mvn install'
-			}
-	   }
-	   stage("deploy"){
-		agent { label 'jenkinsSlave3' }
-	        steps {
-			    bat 'mvn deploy'
-			}
-	   }
-	  
-   }
+pipeline {
+    agent any
+    tools {
+        maven "Maven3"
+    }
+    stages {
+        stage("Maven Build") {
+            steps {
+                script {
+                    sh "mvn clean package"
+                }
+            }
+        }
+        stage("Publish to Nexus Repository Manager") {
+            steps {
+                script {
+                   nexusArtifactUploader artifacts: [
+					   [
+						   artifactId: 'Hello',
+						   classifier: '',
+						   file: 'target/Hello1.0-SNAPSHOT.jar',
+						   type: 'jar'
+					   ]	
+				   ],
+				   credentialsId: 'admin',
+				   groupId: 'org.exemple.demo',
+				   nexusUrl: 'localhost:8081',
+				   nexusVersion: 'nexus3',
+				   protocol: 'http',
+				   repository: 'http://localhost:8081/repository/maven-nexus-repo/',
+				   version: '1.0-SNAPSHOT'
+                }
+            }
+        }
+    }
 }
