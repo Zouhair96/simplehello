@@ -33,4 +33,18 @@ pipeline {
             }
         }
     }
+	 post {
+        always {
+            emailext body: 'A Test EMail',
+			recipientProviders: 
+				[
+					[
+						$class: 'zouhair.benali96@gmail.com'
+					],
+					[
+						$class: 'zouhair.benali96@gmail.com'
+					]
+				], subject: 'Test'
+        }
+    }
 }
