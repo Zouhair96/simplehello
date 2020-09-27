@@ -18,7 +18,7 @@ pipeline {
 					   [
 						   artifactId: 'Hello',
 						   classifier: '',
-						   file: 'target/Hello.jar',
+						   file: 'target/Hello-1.0-SNAPSHOT.jar',
 						   type: 'jar'
 					   ]	
 				   ],
