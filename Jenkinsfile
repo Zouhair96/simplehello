@@ -14,7 +14,7 @@ pipeline {
 	stage("Maven deploy") {
             steps {
                 script {
-                    bat "mvn deploy"
+                    bat "mvn clean deploy"
                 }
             }
         }
