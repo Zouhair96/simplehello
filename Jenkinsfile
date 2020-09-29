@@ -14,7 +14,7 @@ pipeline {
 	stage("Maven deploy") {
             steps {
                 script {
-                    bat "mvn clean deploy -Dmaven.test.skip=true"
+                    bat "mvn clean deploy "
                 }
             }
         }
