@@ -33,10 +33,5 @@ pipeline {
             }
         }
     }
-	 post {
-        always {
-            mail bcc: '', body: '''Welcome to Jenkins World.
-		 Great Job''', cc: '', from: '', replyTo: '', subject: 'Jenkins job test', to: 'zouhair.benali96@gmail.com'
-        }
-    }
+	 
 }
