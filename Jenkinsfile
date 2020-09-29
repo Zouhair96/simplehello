@@ -10,6 +10,7 @@ pipeline {
                     bat "mvn clean package"
                 }
             }
+	}
 	stage("Maven deploy") {
             steps {
                 script {
