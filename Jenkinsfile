@@ -96,9 +96,11 @@ pipeline {
             }
         }
 	    stage ('deploy to tomcat'){
+		    step{
    		echo 'deployment started'
        		bat '''copy C:\\jenkins\\JenkinsHome\\workspace\\MavenJenkinsTomcat\\target\\target\\*.war C:\\jenkins\\tomcat\\apache-tomcat-8.5.58-windows-x64\\apache-tomcat-8.5.58\\webapps'''
-   }
+		    }
+		    }
     }
 	 
 }
