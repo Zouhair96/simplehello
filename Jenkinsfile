@@ -25,7 +25,7 @@ pipeline {
 					   [
 						   artifactId: 'Hello',
 						   classifier: '',
-						   file: 'target/Hello-1.0-SNAPSHOT.jar',
+						   file: 'C:/jenkins/JenkinsHome/workspace/Jenkins_Nexus/target/Hello-1.0-SNAPSHOT.jar',
 						   type: 'jar'
 					   ]	
 				   ],
