@@ -11,14 +11,14 @@ pipeline {
                 }
             }
 	}
-	stage("Maven deploy") {
+	/*stage("Maven deploy") {
             steps {
                 script {
                     bat "mvn  deploy"
                 }
             }
-        }
-    /*    stage("Publish to Nexus Repository Manager") {
+        }*/
+        stage("Publish to Nexus Repository Manager") {
             steps {
                 script {
                    nexusArtifactUploader artifacts: [
@@ -38,7 +38,7 @@ pipeline {
 				   version: '1.0-SNAPSHOT'
                 }
             }
-        }*/
+        }
     }
 	 
 }
