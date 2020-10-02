@@ -95,14 +95,14 @@ pipeline {
                 }
             }
         }
-	    stage ('deploy to tomcat'){
+	   /* stage ('deploy to tomcat'){
 		    steps {
                 script {
    		echo 'deployment started'
-       		bat "xcopy /s  C:/jenkins/JenkinsHome/workspace/MavenJenkinsTomcat/target/target/*.war C:/jenkins/tomcat/apache-tomcat-8.5.58-windows-x64/apache-tomcat-8.5.58/webapps"
+       		//bat "xcopy /s  C:/jenkins/JenkinsHome/workspace/MavenJenkinsTomcat/target/target/*.war C:/jenkins/tomcat/apache-tomcat-8.5.58-windows-x64/apache-tomcat-8.5.58/webapps"
 		    }
 		    }
-	    }
+	    }*/
     }
 	 
 }
